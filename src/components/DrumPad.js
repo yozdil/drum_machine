@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Button } from "semantic-ui-react";
 
-const Drumpad = ({ obj }) => {
-  const [audio] = useState(new Audio(obj.url));
+const Drumpad = ({ data }) => {
+  const [audio] = useState(new Audio(data.url));
   const playAudio = () => {
     audio.currentTime = 0;
     audio.play();
   };
   const handleKeyDown = (event) => {
     console.log("A key was pressed", event.keyCode);
-    if (event.keyCode === obj.keyCode) {
+    if (event.keyCode === data.keyCode) {
       playAudio();
     }
   };
@@ -22,7 +22,7 @@ const Drumpad = ({ obj }) => {
 
   return (
     <Button onClick={playAudio} size="massive">
-      {obj.keyTrigger}
+      {data.keyTrigger}
     </Button>
   );
 };

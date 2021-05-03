@@ -10,7 +10,8 @@ import {
 } from "semantic-ui-react";
 
 function App() {
-  const obj = Banks().bankOne[0];
+
+  const data = Banks().bankOne;
 
   return (
     <div className="container">
@@ -24,7 +25,7 @@ function App() {
         <Divider />
         <Container id="display">
           <Header as="h1">Drum Machine</Header>
-          <DrumMachine obj={obj} />
+          <DrumMachine data={data} />
         </Container>
       </Container>
     </div>
