@@ -1,10 +1,7 @@
-import { Button, Grid, Container } from "semantic-ui-react";
-import Banks from "../helpers/banks";
+import { Button, Grid, Container, Checkbox } from "semantic-ui-react";
 import DrumPad from "./DrumPad";
 
-const obj = Banks().bankOne[0];
-
-const DrumMachine = () => {
+const DrumMachine = ({obj}) => {
   return (
     <Container>
       <Grid>
