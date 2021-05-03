@@ -1,40 +1,18 @@
-import { useEffect, useRef, useState } from "react";
-import { Button, Grid, Container } from "semantic-ui-react";
-
-
-const useAudio = url => {
-  const [audio] = useState(new Audio(url));
-  const [playing, setPlaying] = useState(false);
-
-  const toggle = () => setPlaying(!playing);
-
-  useEffect(() => {
-      playing ? audio.play() : audio.pause();
-    },
-    [playing]
-  );
-
-  useEffect(() => {
-    audio.addEventListener('ended', () => setPlaying(false));
-    return () => {
-      audio.removeEventListener('ended', () => setPlaying(false));
-    };
-  }, []);
-
-  return [playing, toggle];
-};
+import { useEffect, useState } from "react";
+import { Button } from "semantic-ui-react";
 
 const Drumpad = ({ obj }) => {
-
-  const [playing, toggle] = useAudio(obj.url);
-
+  const [audio] = useState(new Audio(obj.url));
+  const playAudio = () => {
+    audio.currentTime = 0;
+    audio.play();
+  };
   const handleKeyDown = (event) => {
     console.log("A key was pressed", event.keyCode);
     if (event.keyCode === obj.keyCode) {
-      toggle();
+      playAudio();
     }
   };
-
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     return () => {
@@ -43,7 +21,7 @@ const Drumpad = ({ obj }) => {
   }, []);
 
   return (
-    <Button onClick={toggle} size="massive">
+    <Button onClick={playAudio} size="massive">
       {obj.keyTrigger}
     </Button>
   );
