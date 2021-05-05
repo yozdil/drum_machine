@@ -17,10 +17,6 @@ function App() {
 
   const [display, setDisplay] = useState("");
 
-  if (isTextChanged) {
-  }
-  const data = Banks().bankOne;
-
   return (
     <div className="container">
       <Container id="drum-machine">
@@ -38,7 +34,9 @@ function App() {
         <Divider />
         <Container>
           <Header as="h1">{display}</Header>
-          <DrumMachine data={data} />
+          <DrumMachine
+            data={isTextChanged ? Banks().bankTwo : Banks().bankOne} //Instead of this store it in state
+          />
         </Container>
       </Container>
     </div>
