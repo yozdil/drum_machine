@@ -21,7 +21,7 @@ const Drumpad = ({ data }) => {
   }, []);
 
   return (
-    <Button onClick={playAudio} size="massive">
+    <Button onClick={playAudio} id={data.id} size="massive">
       {data.keyTrigger}
     </Button>
   );
