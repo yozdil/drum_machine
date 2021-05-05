@@ -1,4 +1,4 @@
-import { Button, Grid, Container, Checkbox } from "semantic-ui-react";
+import { Button, Grid, Container } from "semantic-ui-react";
 import DrumPad from "./DrumPad";
 
 const DrumMachine = ({ data }) => {
