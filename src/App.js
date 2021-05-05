@@ -4,7 +4,6 @@ import "./styles/app.scss";
 import {
   Header,
   Container,
-  Button,
   Divider,
   Segment,
   Checkbox,
