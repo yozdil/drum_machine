@@ -8,9 +8,9 @@ const Drumpad = ({ data }) => {
     audio.play();
   };
   const handleKeyDown = (event) => {
-    console.log("A key was pressed", event.keyCode);
     if (event.keyCode === data.keyCode) {
-      playAudio();
+      document.querySelector(`#${data.id}`).click();
+      // playAudio();
     }
   };
   useEffect(() => {
