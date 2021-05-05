@@ -15,7 +15,7 @@ const Drumpad = ({ data }) => {
       document.querySelector(`#${data.id}`).click();
       setTimeout(() => {
         setActiveButton(false);
-      }, 300);
+      }, 100);
     }
   };
   useEffect(() => {
