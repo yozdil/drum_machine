@@ -9,8 +9,7 @@ function App() {
   const [bankTwo, setBankTwo] = useState(false);
   const [bank, setBank] = useState(Banks().bankOne);
 
-  const [display, setDisplay] = useState("");
-  // const [activeButton, setActiveButton] = useState(false);
+  const [display, setDisplay] = useState("Welcome!");
 
   const selectBank = (bank) => {
     setBank(Banks()[bank]);
