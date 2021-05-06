@@ -1,41 +1,60 @@
 import DrumMachine from "./components/DrumMachine";
 import Banks from "./helpers/banks";
 import "./styles/app.scss";
-import {
-  Header,
-  Container,
-  Divider,
-  Button,
-  Checkbox,
-} from "semantic-ui-react";
+import { Header, Container, Divider, Segment, Button } from "semantic-ui-react";
 import { useState } from "react";
-import useToggle from "./hooks/useToggle";
 
 function App() {
-  const [bank, setBank] = useToggle();
+  const [bankOne, setBankOne] = useState(false);
+  const [bankTwo, setBankTwo] = useState(false);
+  const [bank, setBank] = useState(Banks().bankOne);
 
   const [display, setDisplay] = useState("");
+  // const [activeButton, setActiveButton] = useState(false);
+
+  const selectBank = (bank) => {
+    setBank(Banks()[bank]);
+    if (bank === "bankOne") {
+      setBankTwo(false);
+      setBankOne(true);
+      setDisplay("Heater Kit");
+    } else {
+      setBankOne(false);
+      setBankTwo(true);
+      setDisplay("Smooth Piano Kit");
+    }
+  };
 
   return (
     <div className="container">
       <Container id="drum-machine">
-        <Button.Group horizontal>
-          <Button textAlign="center">
+        <Segment.Group horizontal>
+          <Segment textAlign="center">
             <Header as="h2">Sound Bank</Header>
-            <Checkbox slider onChange={setBank}></Checkbox>
-            <Header>{bank ? "Smooth Piano Kit" : "Heater Kit"}</Header>
-          </Button>
-          <Button id="display">
+            <Button
+              toggle
+              active={bankOne}
+              onClick={() => selectBank("bankOne")}
+            >
+              Heater Kit
+            </Button>
+            <Button
+              toggle
+              active={bankTwo}
+              onClick={() => selectBank("bankTwo")}
+            >
+              Smooth Piano Kit
+            </Button>
+          </Segment>
+          <Segment clearing id="display" textAlign="center">
             <Header as="h1">Drum Machine</Header>
-          </Button>
-        </Button.Group>
+            <Header as="h2">{display}</Header>
+          </Segment>
+        </Segment.Group>
 
         <Divider />
         <Container>
-          <Header as="h1">{display}</Header>
-          <DrumMachine
-            data={bank} //Instead of this store it in state
-          />
+          <DrumMachine setDisplay={setDisplay} data={bank} />
         </Container>
       </Container>
     </div>

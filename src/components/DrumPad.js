@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "semantic-ui-react";
 
-const Drumpad = ({ data }) => {
+const Drumpad = ({ data, setDisplay }) => {
   const [activeButton, setActiveButton] = useState(false);
 
   const playAudio = () => {
+    setDisplay(data.id)
     setActiveButton(true);
     document.querySelector(`#${data.id}`).currentTime = 0;
     document.querySelector(`#${data.id}`).play();
@@ -29,7 +30,7 @@ const Drumpad = ({ data }) => {
   return (
     <Button toggle active={activeButton} onClick={playAudio} size="massive">
       {data.keyTrigger}
-      <audio className="clip" id={data.id} src={data.url}></audio>
+      <audio id={data.id} className="clip"  src={data.url}></audio>
     </Button>
   );
 };
