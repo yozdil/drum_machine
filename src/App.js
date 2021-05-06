@@ -5,7 +5,7 @@ import { Header, Container, Divider, Segment, Button } from "semantic-ui-react";
 import { useState } from "react";
 
 function App() {
-  const [bankOne, setBankOne] = useState(false);
+  const [bankOne, setBankOne] = useState(true);
   const [bankTwo, setBankTwo] = useState(false);
   const [bank, setBank] = useState(Banks().bankOne);
 
