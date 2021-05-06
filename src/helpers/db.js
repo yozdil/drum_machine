@@ -1,4 +1,4 @@
-const Banks = () => {
+const DB = () => {
   return {
     bankOne: [
       {
@@ -115,4 +115,4 @@ const Banks = () => {
   };
 };
 
-export default Banks;
+export default DB;
