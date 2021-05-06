@@ -25,7 +25,7 @@ function App() {
           </Segment>
         </Segment.Group>
         <Divider />
-        <Segment padded="very">
+        <Segment padded>
           <Container className="machine-container">
             <DrumMachine setDisplay={setDisplay} data={bank} />
           </Container>
