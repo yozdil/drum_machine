@@ -6,7 +6,7 @@
 
 [Drum Machine](https://csb-wfx43.netlify.app/) was done for Front End Development Libraries Certification at [freeCodeCamp](https://www.freecodecamp.org). At it's core it uses React and Semantic UI for simple visuals and mobile responsiveness. It accepts button clicks or key press in order to make your tune!
 
-### ✨ [Demo](www.google.com)
+### ✨ [Demo](https://csb-qk26u.netlify.app/)
 
 ## Install
 
