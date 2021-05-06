@@ -5,36 +5,36 @@ import {
   Header,
   Container,
   Divider,
-  Segment,
+  Button,
   Checkbox,
 } from "semantic-ui-react";
 import { useState } from "react";
 import useToggle from "./hooks/useToggle";
 
 function App() {
-  const [isTextChanged, setIsTextChanged] = useToggle();
+  const [bank, setBank] = useToggle();
 
   const [display, setDisplay] = useState("");
 
   return (
     <div className="container">
       <Container id="drum-machine">
-        <Segment.Group horizontal>
-          <Segment textAlign="center">
+        <Button.Group horizontal>
+          <Button textAlign="center">
             <Header as="h2">Sound Bank</Header>
-            <Checkbox slider onChange={setIsTextChanged}></Checkbox>
-            <Header>{isTextChanged ? "Smooth Piano Kit" : "Heater Kit"}</Header>
-          </Segment>
-          <Segment id="display">
+            <Checkbox slider onChange={setBank}></Checkbox>
+            <Header>{bank ? "Smooth Piano Kit" : "Heater Kit"}</Header>
+          </Button>
+          <Button id="display">
             <Header as="h1">Drum Machine</Header>
-          </Segment>
-        </Segment.Group>
+          </Button>
+        </Button.Group>
 
         <Divider />
         <Container>
           <Header as="h1">{display}</Header>
           <DrumMachine
-            data={isTextChanged ? Banks().bankTwo : Banks().bankOne} //Instead of this store it in state
+            data={bank} //Instead of this store it in state
           />
         </Container>
       </Container>
